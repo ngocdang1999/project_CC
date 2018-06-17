@@ -84,6 +84,50 @@ main(int argc,char *argv[])
 }
 /*
 	chucn
+
+	int Docdaysotufile(int a[], char st[]){
+	FILE *f;
+	int i = 0;
+	f = fopen(st, "rt");
+	while(!feof(f)) fscanf(f, "%d", &a[i++]);
+	fclose(f);
+	return i;
+
+
+
+#include<stdio.h>
+int docmatran(int [][10], char);
+void xuatmatran(int [][10], int);
+int main()
+{
+	int a[10][10];
+	char str[]="     ";
+	int n=docmatran(a,str);
+	xuatmatran(a,n);
+}
+int docmatran(int a[10][10], char str)
+{
+	FILE *f;
+	int n;
+	f=fopen(str,"rt");
+	fscanf(f,"%d",&n);
+	for(i=0;i<n;i++)
+		 for(j=0;j<n;j++)
+		 {
+			 fscanf(f,"%d",&a[i][j])
+		 }
+	fclose(f);
+	return(n);
+}
+void xuatmatran(int a[10][10], int n)
+{
+	for(i=0;i<n;i++)
+		 for(j=0;j<n;j++)
+		 {
+			 sprintf("%d",&a[i][j])
+		 }
+}
+}
 */
 int Docmatranvuong(int a[][10],char mang2chieu[])
 {
@@ -177,7 +221,7 @@ for (i = 0; i < n; i++)
 			if (a[i][j] == k)
 			{
 				if (i - 1 >= 0) s += a[i - 1][j];
-				if (j - 1 >= 0) s += a[i][j - 1];
+	         	if (j - 1 >= 0) s += a[i][j - 1];
 				if (j + 1 < n) s += a[i][j + 1];
 				if (i + 1 < n) s += a[i + 1][j];
 				if (j - 1 >= 0 && i - 1 >= 0) s += a[i - 1][j - 1];
